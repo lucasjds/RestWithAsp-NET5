@@ -31,14 +31,24 @@ namespace RestWithAsp_NET5.Controllers
       return BadRequest("Invalid input");
     }
 
-    private int ConvertToDecimal(string firstNumber)
+    private decimal ConvertToDecimal(string firstNumber)
     {
-      throw new NotImplementedException();
+      decimal value;
+      if(decimal.TryParse(firstNumber, out value))
+      {
+        return value;
+      }
+      return 0;
     }
 
     private bool IsNumeric(string firstNumber)
     {
-      throw new NotImplementedException();
+      double number;
+      bool isNumber = double.TryParse(firstNumber,
+                                      System.Globalization.NumberStyles.Any,
+                                      System.Globalization.NumberFormatInfo.InvariantInfo,
+                                      out number);
+      return isNumber;
     }
   }
 }
