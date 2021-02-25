@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\01 - RestWithAsp-NET5_Calculadora\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
+      "projectUniqueName": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02 - RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
       "projectName": "RestWithAsp-NET5",
-      "projectPath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\01 - RestWithAsp-NET5_Calculadora\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
+      "projectPath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02 - RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
       "packagesPath": "C:\\Users\\lucas.jose\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\01 - RestWithAsp-NET5_Calculadora\\RestWithAsp-NET5\\obj\\",
+      "outputPath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02 - RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lucas.jose\\AppData\\Roaming\\NuGet\\NuGet.Config",
