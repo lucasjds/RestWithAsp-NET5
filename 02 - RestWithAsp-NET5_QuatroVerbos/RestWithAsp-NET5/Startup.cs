@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using RestWithAsp_NET5.Model.Context;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Business.Implementations;
+using RestWithAsp_NET5.Repository.Implementations;
+using RestWithAsp_NET5.Repository;
 
 namespace RestWithAsp_NET5
 {
@@ -27,7 +29,8 @@ namespace RestWithAsp_NET5
       var connection = Configuration["MySqlConnection:MySqlConnectionString"];
       services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
       services.AddApiVersioning();
-      services.AddScoped<IPersonRepository, PersonServiceImplementation>();
+      services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
+      services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
