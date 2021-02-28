@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JyU3PizBH1mAZoBvNMkjyLQsXJK5mZbBxahGzskx4lKh+ad+nElo4Eyumsn4fMPhl2sH/pt6HImrGwDt3/HM3g==",
+  "dgSpecHash": "1fJAEK2/wkTnTbAhjM2xDu3DoBqCrsaUf+HyJjwncY1byxXoyYVHEnxne9iamOuPVgigbtc+WxE7rrjKhHk+Nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02 - RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lucas.jose\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.1.1\\microsoft.aspnetcore.mvc.versioning.4.1.1.nupkg.sha512",
     "C:\\Users\\lucas.jose\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\lucas.jose\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\lucas.jose\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

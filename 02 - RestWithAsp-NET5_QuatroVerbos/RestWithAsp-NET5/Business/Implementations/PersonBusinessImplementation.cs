@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestWithAsp_NET5.Services.Implementations
+namespace RestWithAsp_NET5.Business.Implementations
 {
-  public class PersonServiceImplementation : IPersonService
+  public class PersonBusinessImplementation : IPersonBusiness
   {
     private MySqlContext _context;
 
-    public PersonServiceImplementation(MySqlContext context)
+    public PersonBusinessImplementation(MySqlContext context)
     {
       _context = context;
     }
