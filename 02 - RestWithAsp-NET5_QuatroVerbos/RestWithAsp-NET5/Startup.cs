@@ -43,6 +43,8 @@ namespace RestWithAsp_NET5
       services.AddApiVersioning();
       services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
       services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+      services.AddScoped<IBookBusiness, BookBusinessImplementation>();
+      services.AddScoped<IBookRepository, BookRepositoryImplementation>();
     }
 
     private void MigrateDatabase(string connection)
