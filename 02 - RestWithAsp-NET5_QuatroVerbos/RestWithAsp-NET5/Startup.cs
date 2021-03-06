@@ -7,7 +7,6 @@ using Microsoft.Extensions.Hosting;
 using RestWithAsp_NET5.Model.Context;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Business.Implementations;
-using RestWithAsp_NET5.Repository.Implementations;
 using RestWithAsp_NET5.Repository;
 using Serilog;
 using System.Collections.Generic;
@@ -43,7 +42,6 @@ namespace RestWithAsp_NET5
       }
       services.AddApiVersioning();
       services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-      services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
       services.AddScoped<IBookBusiness, BookBusinessImplementation>();
       services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
     }
