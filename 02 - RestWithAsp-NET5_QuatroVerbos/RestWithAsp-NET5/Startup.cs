@@ -11,6 +11,7 @@ using RestWithAsp_NET5.Repository.Implementations;
 using RestWithAsp_NET5.Repository;
 using Serilog;
 using System.Collections.Generic;
+using RestWithAsp_NET5.Repository.Generic;
 
 namespace RestWithAsp_NET5
 {
@@ -44,7 +45,7 @@ namespace RestWithAsp_NET5
       services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
       services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
       services.AddScoped<IBookBusiness, BookBusinessImplementation>();
-      services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+      services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
     }
 
     private void MigrateDatabase(string connection)
