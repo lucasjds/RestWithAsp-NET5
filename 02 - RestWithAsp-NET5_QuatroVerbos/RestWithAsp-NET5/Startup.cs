@@ -11,6 +11,7 @@ using RestWithAsp_NET5.Repository;
 using Serilog;
 using System.Collections.Generic;
 using RestWithAsp_NET5.Repository.Generic;
+using Microsoft.Net.Http.Headers;
 
 namespace RestWithAsp_NET5
 {
@@ -40,6 +41,14 @@ namespace RestWithAsp_NET5
       {
         MigrateDatabase(connection);
       }
+      services.AddMvc(options => 
+      {
+        options.RespectBrowserAcceptHeader = true;
+        options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+        options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+      })
+      .AddXmlDataContractSerializerFormatters();
+
       services.AddApiVersioning();
       services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
       services.AddScoped<IBookBusiness, BookBusinessImplementation>();
