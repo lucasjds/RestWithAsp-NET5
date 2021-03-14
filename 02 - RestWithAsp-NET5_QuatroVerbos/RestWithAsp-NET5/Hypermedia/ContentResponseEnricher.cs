@@ -5,12 +5,11 @@ using RestWithAsp_NET5.Hypermedia.Abstract;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Hypermedia
 {
-  public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportHypermedia
+  public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportsHypermedia
   {
     public ContentResponseEnricher()
     {

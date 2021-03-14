@@ -12,6 +12,8 @@ using Serilog;
 using System.Collections.Generic;
 using RestWithAsp_NET5.Repository.Generic;
 using Microsoft.Net.Http.Headers;
+using RestWithAsp_NET5.Hypermedia.Filter;
+using RestWithAsp_NET5.Hypermedia.Enricher;
 
 namespace RestWithAsp_NET5
 {
@@ -48,6 +50,10 @@ namespace RestWithAsp_NET5
         options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
       })
       .AddXmlDataContractSerializerFormatters();
+
+      var filterOptions = new HyperMediaFilterOptions();
+      filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
+      services.AddSingleton(filterOptions);
 
       services.AddApiVersioning();
       services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
@@ -91,6 +97,7 @@ namespace RestWithAsp_NET5
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+        endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
       });
     }
   }
