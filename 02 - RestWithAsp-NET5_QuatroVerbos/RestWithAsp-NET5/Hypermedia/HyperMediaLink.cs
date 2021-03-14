@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace RestWithAsp_NET5.Hypermedia
 {
@@ -17,7 +13,7 @@ namespace RestWithAsp_NET5.Hypermedia
         object _lock = new object();
         lock (_lock)
         {
-          StringBuilder sb = new StringBuilder();
+          StringBuilder sb = new StringBuilder(href);
           return sb.Replace("%2F", "/").ToString();
         }
       }
