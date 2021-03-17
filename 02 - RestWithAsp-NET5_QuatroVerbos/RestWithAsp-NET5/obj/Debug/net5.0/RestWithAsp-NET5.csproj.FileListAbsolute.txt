@@ -68,3 +68,7 @@ C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_Quatr
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
