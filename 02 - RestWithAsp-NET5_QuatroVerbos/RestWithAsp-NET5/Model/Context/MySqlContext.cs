@@ -12,5 +12,6 @@ namespace RestWithAsp_NET5.Model.Context
     public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { }
     public DbSet<Person> Persons { get; set; }
     public DbSet<Book> Books { get; set; }
+    public DbSet<User> Users { get; set; }
   }
 }
