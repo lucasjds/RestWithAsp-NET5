@@ -29,5 +29,27 @@ namespace RestWithAsp_NET5.Repository
       Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
       return BitConverter.ToString(hashedBytes);
     }
+
+    public User RefereshUserInfo(User user)
+    {
+      if (_context.Users.Any(x => x.Id.Equals(user.Id))) 
+        return null;
+
+      var result = _context.Users.SingleOrDefault(x => x.Id.Equals(user.Id));
+      if (result != null)
+      {
+        try
+        {
+          _context.Entry(result).CurrentValues.SetValues(user);
+          _context.SaveChanges();
+          return result;
+        }
+        catch (Exception)
+        {
+          throw;
+        }
+      }
+      return result;
+    }
   }
 }
