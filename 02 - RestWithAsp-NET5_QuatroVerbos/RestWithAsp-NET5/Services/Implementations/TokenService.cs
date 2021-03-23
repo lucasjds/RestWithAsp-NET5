@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Services.Implementations
 {
-  public class TokenService : ITokenInterface
+  public class TokenService : ITokenService
   {
     private TokenConfiguration _tokenConfiguration;
 

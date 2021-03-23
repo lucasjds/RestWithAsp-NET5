@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Services
 {
-  public interface ITokenInterface
+  public interface ITokenService
   {
     string GenerateAccessToken(IEnumerable<Claim> claims);
     string GenerateRefreshToken();
