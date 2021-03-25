@@ -42,6 +42,9 @@ namespace RestWithAsp_NET5.Business.Implementations
 
       user.RefreshToken = refreshToken;
       user.RefreshTokenExpireTime = DateTime.Now.AddDays(_configuration.DaysToExpire);
+
+      _repository.RefereshUserInfo(user);
+
       DateTime createDate = DateTime.Now;
       DateTime expirationDate = createDate.AddDays(_configuration.Minutes);
 
