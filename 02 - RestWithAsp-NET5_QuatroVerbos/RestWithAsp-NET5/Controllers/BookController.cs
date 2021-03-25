@@ -1,18 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Data.VO;
 using RestWithAsp_NET5.Hypermedia.Filter;
-using RestWithAsp_NET5.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Controllers
 {
   [ApiVersion("1")]
   [ApiController]
+  [Authorize("Bearer")]
   [Route("api/[controller]/v{version:apiVersion}")]
   public class BookController : ControllerBase
   {

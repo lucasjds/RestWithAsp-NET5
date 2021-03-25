@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RestWithAsp_NET5.Model;
 using RestWithAsp_NET5.Business;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using RestWithAsp_NET5.Data.VO;
 using RestWithAsp_NET5.Hypermedia.Filter;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestWithAsp_NET5.Controllers
 {
   [ApiVersion("1")]
   [ApiController]
+  [Authorize("Bearer")]
   [Route("api/[controller]/v{version:apiVersion}")]
   public class PersonController : ControllerBase
   {
