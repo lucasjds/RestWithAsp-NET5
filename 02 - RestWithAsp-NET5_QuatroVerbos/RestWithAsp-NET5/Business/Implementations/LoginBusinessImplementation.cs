@@ -28,7 +28,7 @@ namespace RestWithAsp_NET5.Business.Implementations
     public TokenVO ValidateCredentials(UserVO userCredentials)
     {
       var user = _repository.ValidateCredentials(userCredentials);
-      if(user == null)
+      if (user == null)
       {
         return null;
       }
@@ -55,6 +55,43 @@ namespace RestWithAsp_NET5.Business.Implementations
                     accessToken,
                     refreshToken
                     );
+    }
+
+    public TokenVO ValidateCredentials(TokenVO token)
+    {
+      var accessToken = token.AccessToken;
+      var refreshToken = token.RefreshToken;
+
+      var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
+
+      var userName = principal.Identity.Name;
+      var user = _repository.ValidateCredentials(userName);
+
+      if(user == null ||
+        user.RefreshToken != refreshToken ||
+        user.RefreshTokenExpireTime <= DateTime.Now)
+      {
+        return null;
+      }
+
+      accessToken = _tokenService.GenerateAccessToken(principal.Claims);
+      refreshToken = _tokenService.GenerateRefreshToken();
+
+      user.RefreshToken = refreshToken;
+
+      _repository.RefereshUserInfo(user);
+
+      DateTime createDate = DateTime.Now;
+      DateTime expirationDate = createDate.AddDays(_configuration.Minutes);
+
+      return new TokenVO(
+                    true,
+                    createDate.ToString(DATE_FORMAT),
+                    expirationDate.ToString(DATE_FORMAT),
+                    accessToken,
+                    refreshToken
+                    );
+
     }
   }
 }

@@ -23,6 +23,11 @@ namespace RestWithAsp_NET5.Repository
       return _context.Users.FirstOrDefault(x => x.UserName == user.UserName && x.Password == pass);
     }
 
+    public User ValidateCredentials(string userName)
+    {
+      return _context.Users.SingleOrDefault(u => u.UserName == userName);
+    }
+
     private string ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
     {
       Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
@@ -51,5 +56,7 @@ namespace RestWithAsp_NET5.Repository
       }
       return result;
     }
+
+    
   }
 }

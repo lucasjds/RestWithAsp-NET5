@@ -6,6 +6,7 @@ namespace RestWithAsp_NET5.Repository
   public interface IUserRepository
   {
     User ValidateCredentials(UserVO user);
+    User ValidateCredentials(string userName);
     User RefereshUserInfo(User user);
   }
 }
