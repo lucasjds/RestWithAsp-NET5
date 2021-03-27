@@ -46,9 +46,12 @@ namespace RestWithAsp_NET5
     public void ConfigureServices(IServiceCollection services)
     {
       var tokenConfigurations = new TokenConfiguration();
+
       new ConfigureFromConfigurationOptions<TokenConfiguration>(
-        Configuration.GetSection("TokenConfigurations")
-      ).Configure(tokenConfigurations);
+              Configuration.GetSection("TokenConfiguration")
+          )
+          .Configure(tokenConfigurations);
+
       services.AddSingleton(tokenConfigurations);
 
       services.AddAuthentication(options =>
@@ -88,7 +91,7 @@ namespace RestWithAsp_NET5
       {
         MigrateDatabase(connection);
       }
-      services.AddMvc(options => 
+      services.AddMvc(options =>
       {
         options.RespectBrowserAcceptHeader = true;
         options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
@@ -102,7 +105,8 @@ namespace RestWithAsp_NET5
       services.AddSingleton(filterOptions);
 
       services.AddApiVersioning();
-      services.AddSwaggerGen(c => {
+      services.AddSwaggerGen(c =>
+      {
         c.SwaggerDoc("v1",
           new OpenApiInfo
           {
@@ -158,7 +162,8 @@ namespace RestWithAsp_NET5
       app.UseCors();
 
       app.UseSwagger();
-      app.UseSwaggerUI(c => {
+      app.UseSwaggerUI(c =>
+      {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rest API from 0 to Azure with .NET Core 5");
       });
 

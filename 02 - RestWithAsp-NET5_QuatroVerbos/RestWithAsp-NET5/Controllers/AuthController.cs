@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Controllers
 {
+  [ApiVersion("1")]
   [Route("api/[controller]/v{version:apiVersion}")]
   [ApiController]
   public class AuthController : ControllerBase
@@ -29,7 +30,7 @@ namespace RestWithAsp_NET5.Controllers
       var token = _loginBusiness.ValidateCredentials(user);
       if (token == null)
         return Unauthorized();
-      return Ok(user);
+      return Ok(token);
     }
   }
 }

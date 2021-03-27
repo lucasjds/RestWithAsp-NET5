@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithAsp_NET5.Business;
-using System.Collections.Generic;
 using RestWithAsp_NET5.Data.VO;
 using RestWithAsp_NET5.Hypermedia.Filter;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+
 
 namespace RestWithAsp_NET5.Controllers
 {
@@ -24,7 +25,7 @@ namespace RestWithAsp_NET5.Controllers
     }
 
     [HttpGet]
-    [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+    [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
     [ProducesResponseType(204)]
     [ProducesResponseType(400)]
     [ProducesResponseType(401)]
