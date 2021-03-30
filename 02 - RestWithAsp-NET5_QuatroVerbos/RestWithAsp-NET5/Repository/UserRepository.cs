@@ -28,6 +28,18 @@ namespace RestWithAsp_NET5.Repository
       return _context.Users.SingleOrDefault(u => u.UserName == userName);
     }
 
+    public bool RevokeToken(string userName)
+    {
+      var user = _context.Users.SingleOrDefault(u => u.UserName == userName);
+      if(user is null)
+      {
+        return false;
+      }
+      user.RefreshToken = null;
+      _context.SaveChanges();
+      return true;
+    }
+
     private string ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
     {
       Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
@@ -37,7 +49,7 @@ namespace RestWithAsp_NET5.Repository
 
     public User RefereshUserInfo(User user)
     {
-      if (_context.Users.Any(x => x.Id.Equals(user.Id))) 
+      if (!_context.Users.Any(x => x.Id.Equals(user.Id))) 
         return null;
 
       var result = _context.Users.SingleOrDefault(x => x.Id.Equals(user.Id));
@@ -57,6 +69,5 @@ namespace RestWithAsp_NET5.Repository
       return result;
     }
 
-    
   }
 }

@@ -93,5 +93,10 @@ namespace RestWithAsp_NET5.Business.Implementations
                     );
 
     }
+
+    public bool RevokeToken(string userName)
+    {
+      return _repository.RevokeToken(userName);
+    }
   }
 }

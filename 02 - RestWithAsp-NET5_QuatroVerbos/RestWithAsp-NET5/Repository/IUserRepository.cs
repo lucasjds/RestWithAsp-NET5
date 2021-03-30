@@ -7,6 +7,7 @@ namespace RestWithAsp_NET5.Repository
   {
     User ValidateCredentials(UserVO user);
     User ValidateCredentials(string userName);
+    bool RevokeToken(string userName);
     User RefereshUserInfo(User user);
   }
 }

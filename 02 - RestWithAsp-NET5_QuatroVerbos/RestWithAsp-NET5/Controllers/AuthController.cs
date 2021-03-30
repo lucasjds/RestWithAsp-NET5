@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Data.VO;
@@ -31,6 +32,32 @@ namespace RestWithAsp_NET5.Controllers
       if (token == null)
         return Unauthorized();
       return Ok(token);
+    }
+
+    [HttpPost]
+    [Route("refresh")]
+    public IActionResult Refresh([FromBody] TokenVO tokenVO)
+    {
+      if(tokenVO is null)
+        return BadRequest("Invalid client request");
+      var token = _loginBusiness.ValidateCredentials(tokenVO);
+      if(token is null) 
+        return BadRequest("Invalid client request");
+      return Ok(token);
+
+    }
+
+    [HttpGet]
+    [Route("revoke")]
+    [Authorize("Bearer")]
+    public IActionResult Revoke()
+    {
+      var username = User.Identity.Name;
+      var result = _loginBusiness.RevokeToken(username);
+      if (!result)
+        return BadRequest("Invalid client request");
+      return NoContent();
+
     }
   }
 }
