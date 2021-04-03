@@ -34,5 +34,25 @@ namespace RestWithAsp_NET5.Repository
       }
       return user;
     }
+
+    public List<Person> FindByName(string firstName, string lastName)
+    {
+      if(!string.IsNullOrWhiteSpace(firstName) && !string.IsNullOrWhiteSpace(lastName))
+      {
+        return _context.Persons.Where(x => x.FirstName.Contains(firstName)
+                                        && x.LastName.Contains(lastName)).ToList();
+      }
+      else if (string.IsNullOrWhiteSpace(firstName) && !string.IsNullOrWhiteSpace(lastName))
+      {
+        return _context.Persons.Where(
+                    p => p.LastName.Contains(lastName)).ToList();
+      }
+      else if (!string.IsNullOrWhiteSpace(firstName) && string.IsNullOrWhiteSpace(lastName))
+      {
+        return _context.Persons.Where(
+                    p => p.FirstName.Contains(firstName)).ToList();
+      }
+      return null;
+    }
   }
 }
