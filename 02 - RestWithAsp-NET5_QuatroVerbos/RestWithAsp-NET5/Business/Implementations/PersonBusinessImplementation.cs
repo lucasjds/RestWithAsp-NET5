@@ -8,11 +8,11 @@ namespace RestWithAsp_NET5.Business.Implementations
 {
   public class PersonBusinessImplementation : IPersonBusiness
   {
-    private readonly IRepository<Person> _repository;
+    private readonly IPersonRepository _repository;
 
     private readonly PersonConverter _converter;
 
-    public PersonBusinessImplementation(IRepository<Person> repository)
+    public PersonBusinessImplementation(IPersonRepository repository)
     {
       _repository = repository;
       _converter = new PersonConverter();
@@ -45,6 +45,12 @@ namespace RestWithAsp_NET5.Business.Implementations
     public void Delete(long id)
     {
       _repository.Delete(id);
+    }
+
+    public PersonVO Disable(long id)
+    {
+      var personEntity = _repository.Disable(id);
+      return _converter.Parse(personEntity);
     }
   }
 }
