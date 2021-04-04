@@ -52,5 +52,10 @@ namespace RestWithAsp_NET5.Business.Implementations
       var personEntity = _repository.Disable(id);
       return _converter.Parse(personEntity);
     }
+
+    public List<PersonVO> FindByName(string firstName, string lastName)
+    {
+      return _converter.Parse(_repository.FindByName(firstName, lastName));
+    }
   }
 }
