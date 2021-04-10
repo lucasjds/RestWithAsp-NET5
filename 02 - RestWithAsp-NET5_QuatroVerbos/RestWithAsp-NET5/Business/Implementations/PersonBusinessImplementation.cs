@@ -65,8 +65,15 @@ namespace RestWithAsp_NET5.Business.Implementations
       var sort = (!string.IsNullOrWhiteSpace(sortDirection)) && !sortDirection.Equals("desc") ? "asc" : "desc";
       var size = (pageSize < 1) ? 1 : pageSize;
 
-      string query = @"select * from Person p where 1 = 1 and p.name like '%LEO%' order by p.name asc limit 10 offset 1";
-      string countQuery = string.Empty;
+      string query = @"select * from Person p where 1 = 1 ";
+      if (!string.IsNullOrWhiteSpace(name))
+        query = query + $" and p.name like '%{name}%' ";
+      query += $" order by p.name {sort} limit {size} offset {offset} ";
+
+      string countQuery = @"select count(*) from Person p where 1 = 1 ";
+      if (!string.IsNullOrWhiteSpace(name))
+        countQuery = countQuery + $" and p.name like '%{name}%' ";
+
       var persons = _repository.FindWithPagedSearch(query);
       int totalResults = _repository.GetCount(countQuery);
 
