@@ -3,17 +3,16 @@ using RestWithAsp_NET5.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Business.Implementations
 {
-  public class FileBusiness : IFileBusiness
+  public class FileBusinessImplementation : IFileBusiness
   {
     private readonly string _basePath;
     private readonly IHttpContextAccessor _context;
 
-    public FileBusiness(IHttpContextAccessor context)
+    public FileBusinessImplementation(IHttpContextAccessor context)
     {
       _context = context;
       _basePath = Directory.GetCurrentDirectory() + "\\UploadDir\\";
