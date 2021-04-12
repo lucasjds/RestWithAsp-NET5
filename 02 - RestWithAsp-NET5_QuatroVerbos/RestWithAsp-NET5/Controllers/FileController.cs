@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Data.VO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RestWithAsp_NET5.Controllers
@@ -30,6 +31,18 @@ namespace RestWithAsp_NET5.Controllers
     {
       FileDetailVO detail = await _fileBusiness.SaveFileToDisk(file);
       return new OkObjectResult(detail);
+    } 
+    
+    [HttpPost("uploadMultipleFiles")]
+    [ProducesResponseType(200, Type = typeof(List<FileDetailVO>))]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [Produces("application/json")]
+    public async Task<IActionResult> UploadMultipleFiles([FromForm] List<IFormFile> files)
+    {
+      List<FileDetailVO> details = await _fileBusiness.SaveFilesToDisk(files);
+      return new OkObjectResult(details);
     }
   }
 }

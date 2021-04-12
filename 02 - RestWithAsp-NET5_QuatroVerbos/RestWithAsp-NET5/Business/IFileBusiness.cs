@@ -9,7 +9,7 @@ namespace RestWithAsp_NET5.Business
   {
     public byte[] GetFile(string fileName);
     public Task<FileDetailVO> SaveFileToDisk(IFormFile file);
-    public Task<List<FileDetailVO>> SavesFileToDisk(IList<IFormFile> file);
+    public Task<List<FileDetailVO>> SaveFilesToDisk(IList<IFormFile> file);
 
   }
 }
