@@ -20,7 +20,7 @@ namespace RestWithAsp_NET5.Business.Implementations
 
     public byte[] GetFile(string fileName)
     {
-      throw new NotImplementedException();
+      return File.ReadAllBytes(_basePath + fileName);
     }
 
     public async Task<FileDetailVO> SaveFileToDisk(IFormFile file)
@@ -50,7 +50,7 @@ namespace RestWithAsp_NET5.Business.Implementations
     public async Task<List<FileDetailVO>> SaveFilesToDisk(IList<IFormFile> files)
     {
       List<FileDetailVO> list = new List<FileDetailVO>();
-      foreach(var file in files)
+      foreach (var file in files)
       {
         list.Add(await SaveFileToDisk(file));
       }
