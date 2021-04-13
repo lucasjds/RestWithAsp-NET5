@@ -1,0 +1,15 @@
+services:
+  restwithasp-net5:
+    build:
+      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: restwithaspnet5
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\lucas.jose\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+version: '3.4'
