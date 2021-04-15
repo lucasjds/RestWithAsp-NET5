@@ -19,7 +19,7 @@ services:
     networks:
       - udemy-network
       
-  rest-with-asp-net-udemy:
+  rest-with-asp-net5:
     image: rest-with-asp-net5
     build:
       context: .
