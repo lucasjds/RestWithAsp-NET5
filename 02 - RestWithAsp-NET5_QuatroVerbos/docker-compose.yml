@@ -23,7 +23,7 @@ services:
     image: rest-with-asp-net5
     build:
       context: .
-      dockerfile: RestWithASPNETUdemy/Dockerfile
+      dockerfile: RestWithAsp-NET5/Dockerfile
     environment:
       TZ: America/Sao_Paulo
       ASPNETCORE_ENVIRONMENT: Production

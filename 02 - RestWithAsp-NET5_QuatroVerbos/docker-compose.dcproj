@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>1d16fa2c-d260-47bc-b996-91bcb8d975f7</ProjectGuid>
+    <ProjectGuid>eef84bc7-3115-4720-9df6-d31479f10bec</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>rest-with-asp-net5</DockerServiceName>

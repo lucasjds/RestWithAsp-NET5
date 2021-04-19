@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["RestWithAsp-NET5.csproj", "./"]
-RUN dotnet restore "RestWithAsp-NET5.csproj"
+COPY ["RestWithAsp-NET5/RestWithAsp-NET5.csproj", "RestWithAsp-NET5/"]
+RUN dotnet restore "RestWithAsp-NET5/RestWithAsp-NET5.csproj"
 COPY . .
-WORKDIR "/src/"
+WORKDIR "/src/RestWithAsp-NET5"
 RUN dotnet build "RestWithAsp-NET5.csproj" -c Release -o /app/build
 
 FROM build AS publish

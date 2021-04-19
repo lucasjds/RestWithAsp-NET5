@@ -1,7 +1,0 @@
-services:
-  restwithasp-net5:
-    build:
-      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5
-      dockerfile: Dockerfile
-    image: restwithaspnet5
-version: '3.4'
