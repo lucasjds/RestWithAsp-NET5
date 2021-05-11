@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6a47BBAEJWwMC5ZLBVp0x3crnHaI/+AIdUFDDnHWFIZwpSzIZt7XPZXigTF5i08HF5yuC+jhECvIVvhXkvAQUA==",
+  "dgSpecHash": "wkZHwyW13WqEbwiOaxfd0IOYiRdSFf3r7xS/FH1eQWxMXpV6WpmTkVe9xqdx/npBKaRoIy1tQOQMnH8aS8vufA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02 - RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
+  "projectFilePath": "C:\\Users\\lucas.jose\\Documents\\udemy\\RestWithAsp-NET5\\02_RestWithAsp-NET5_QuatroVerbos\\RestWithAsp-NET5\\RestWithAsp-NET5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucas.jose\\.nuget\\packages\\evolve\\2.4.0\\evolve.2.4.0.nupkg.sha512",
     "C:\\Users\\lucas.jose\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
