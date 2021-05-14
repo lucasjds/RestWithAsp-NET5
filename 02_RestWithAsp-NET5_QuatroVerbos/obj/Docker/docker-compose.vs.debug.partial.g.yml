@@ -14,8 +14,8 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_rest-with-asp-net5$
     volumes:
-      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5:/app
-      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02 - RestWithAsp-NET5_QuatroVerbos:/src
+      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroVerbos\RestWithAsp-NET5:/app
+      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroVerbos:/src
       - C:\Users\lucas.jose\vsdbg\vs2017u5:/remote_debugger:rw
 #$nuget_volume_mapping_rest-with-asp-net5$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
