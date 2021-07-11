@@ -112,7 +112,7 @@ namespace RestWithAsp_NET5
         c.SwaggerDoc("v1",
           new OpenApiInfo
           {
-            Title = "Rest Api From Zero To Azure",
+            Title = "Rest Api From Zero To Azure foo bar",
             Version = "v1",
             Description = "Rest Api From Zero To Azure",
             Contact = new OpenApiContact
