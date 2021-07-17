@@ -10,10 +10,10 @@ namespace RestWithAsp_NET5.Repository.Generic
 {
   public class GenericRepository<T> : IRepository<T> where T : BaseEntity
   {
-    protected MySqlContext _context;
+    protected PostgresContext _context;
     private DbSet<T> dataset;
 
-    public GenericRepository(MySqlContext context)
+    public GenericRepository(PostgresContext context)
     {
       _context = context;
       dataset = context.Set<T>();

@@ -10,7 +10,7 @@ namespace RestWithAsp_NET5.Repository
 {
   public class PersonRepository : GenericRepository<Person>, IPersonRepository
   {
-    public PersonRepository(MySqlContext context) : base(context)
+    public PersonRepository(PostgresContext context) : base(context)
     {
     }
 

@@ -87,12 +87,12 @@ namespace RestWithAsp_NET5
         builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       }));
       services.AddControllers();
-      var connection = Configuration["MySqlConnection:MySqlConnectionString"];
-      services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
-      //if (Environment.IsDevelopment())
-      //{
-      //MigrateDatabase(connection);
-      //}
+      var connection = Configuration["PostgresConnection:PostgresConnectionString"];
+      services.AddDbContext<PostgresContext>(options => options.UseNpgsql(connection));
+      if (Environment.IsDevelopment())
+      {
+        MigrateDatabase(connection);
+      }
       services.AddMvc(options =>
       {
         options.RespectBrowserAcceptHeader = true;
@@ -138,7 +138,7 @@ namespace RestWithAsp_NET5
     {
       try
       {
-        var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+        var evolveConnection = new Npgsql.NpgsqlConnection(connection);
         var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
         {
           Locations = new List<string> { "db/migrations", "db/dataset" },
