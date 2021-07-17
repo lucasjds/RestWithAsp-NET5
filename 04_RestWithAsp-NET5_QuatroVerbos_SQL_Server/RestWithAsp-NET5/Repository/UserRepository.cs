@@ -10,9 +10,9 @@ namespace RestWithAsp_NET5.Repository
 {
   public class UserRepository : IUserRepository
   {
-    private readonly MySqlContext _context;
+    private readonly MSSqlContext _context;
 
-    public UserRepository(MySqlContext context)
+    public UserRepository(MSSqlContext context)
     {
       _context = context;
     }
