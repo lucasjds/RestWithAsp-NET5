@@ -1,5 +1,6 @@
 import React from 'react';
+import Header from './Header';
 
 export default function App() {
-  return (<h1>OLA</h1>);
+  return (<Header title="client header"/>);
 }
