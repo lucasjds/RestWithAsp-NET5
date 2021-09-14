@@ -88,12 +88,12 @@ namespace RestWithAsp_NET5
         builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       }));
       services.AddControllers();
-      var connection = Configuration["MSSqlConnection:MSSqlConnectionString"];
-      services.AddDbContext<MSSqlContext>(options => options.UseSqlServer(connection));
-      if (Environment.IsDevelopment())
-      {
-        MigrateDatabase(connection);
-      }
+      var connection = Configuration["MySqlConnection:MySqlConnectionString"];
+      services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
+      //if (Environment.IsDevelopment())
+      //{
+      //  MigrateDatabase(connection);
+      //}
       services.AddMvc(options =>
       {
         options.RespectBrowserAcceptHeader = true;

@@ -30,3 +30,4 @@ C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroV
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroVerbos\obj\Debug\docker-compose.dcprojAssemblyReference.cache
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroVerbos\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\02_RestWithAsp-NET5_QuatroVerbos\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\05_RestWithAsp-NET5_QuatroVerbos_Node\backend\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

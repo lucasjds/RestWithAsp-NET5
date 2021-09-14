@@ -26,7 +26,6 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Data.SqlClient;
 
 namespace RestWithAsp_NET5
 {
@@ -88,12 +87,12 @@ namespace RestWithAsp_NET5
         builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       }));
       services.AddControllers();
-      var connection = Configuration["MSSqlConnection:MSSqlConnectionString"];
-      services.AddDbContext<MSSqlContext>(options => options.UseSqlServer(connection));
-      if (Environment.IsDevelopment())
-      {
-        MigrateDatabase(connection);
-      }
+      var connection = Configuration["MySqlConnection:MySqlConnectionString"];
+      services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
+      //if (Environment.IsDevelopment())
+      //{
+      //  MigrateDatabase(connection);
+      //}
       services.AddMvc(options =>
       {
         options.RespectBrowserAcceptHeader = true;
@@ -139,7 +138,7 @@ namespace RestWithAsp_NET5
     {
       try
       {
-        var evolveConnection = new SqlConnection(connection);
+        var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
         var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
         {
           Locations = new List<string> { "db/migrations", "db/dataset" },

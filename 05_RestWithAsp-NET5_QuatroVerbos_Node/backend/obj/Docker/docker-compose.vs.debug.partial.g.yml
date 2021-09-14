@@ -14,8 +14,8 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_rest-with-asp-net5$
     volumes:
-      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\04_RestWithAsp-NET5_QuatroVerbos_SQL_Server\RestWithAsp-NET5:/app
-      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\04_RestWithAsp-NET5_QuatroVerbos_SQL_Server:/src
+      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\05_RestWithAsp-NET5_QuatroVerbos_Node\backend\RestWithAsp-NET5:/app
+      - C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\05_RestWithAsp-NET5_QuatroVerbos_Node\backend:/src
       - C:\Users\lucas.jose\vsdbg\vs2017u5:/remote_debugger:rw
 #$nuget_volume_mapping_rest-with-asp-net5$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -24,7 +24,7 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_rest-with-asp-net5$ \"/src/../02_RestWithAsp-NET5_QuatroVerbos/RestWithAsp-NET5/bin/Debug/net5.0/RestWithAsp-NET5.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_rest-with-asp-net5$ \"/src/../../02_RestWithAsp-NET5_QuatroVerbos/RestWithAsp-NET5/bin/Debug/net5.0/RestWithAsp-NET5.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true

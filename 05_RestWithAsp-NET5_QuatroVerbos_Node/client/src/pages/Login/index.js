@@ -41,9 +41,9 @@ export default function Login(){
                 <img src={logoImage} alt="Erudio logo"/>
                 <form onSubmit={login}>
                     <h1>Access your account</h1>
-                    <input placeholder="username" value="{userName}" 
+                    <input placeholder="username" value={userName}
                            onChange={e => setUserName(e.target.value)}></input>
-                    <input type="password" placeholder="password" value="{password}" 
+                    <input type="password" placeholder="password" value={password}
                            onChange={e => setPassword(e.target.value)}></input>
                     <button className="button" type="submit">Login</button>
                 </form>

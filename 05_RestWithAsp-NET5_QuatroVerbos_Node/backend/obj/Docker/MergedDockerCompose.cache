@@ -4,7 +4,7 @@ networks:
 services:
   db:
     build:
-      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\04_RestWithAsp-NET5_QuatroVerbos_SQL_Server
+      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\05_RestWithAsp-NET5_QuatroVerbos_Node\backend
       dockerfile: db/Dockerfile
     command: mysqld --default-authentication-plugin=mysql_native_password
     environment:
@@ -22,7 +22,7 @@ services:
     restart: always
   rest-with-asp-net5:
     build:
-      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\04_RestWithAsp-NET5_QuatroVerbos_SQL_Server
+      context: C:\Users\lucas.jose\Documents\udemy\RestWithAsp-NET5\05_RestWithAsp-NET5_QuatroVerbos_Node\backend
       dockerfile: RestWithAsp-NET5/Dockerfile
     depends_on:
       db:
