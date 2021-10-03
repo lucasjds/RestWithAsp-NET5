@@ -1,13 +1,13 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect}  from 'react';
 import './style.css';
-import {Link, useHistory, useParams} from 'react-router-dom';
+import {Link, useHistory, useParams } from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 
 import api from '../../services/api';
-
 import logoImage from '../../assets/logo.svg';
 
 export default function NewBook(){
+    const [id, setId] = useState(null);
     const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
     const [launchDate, setLaunchDate] = useState('');
@@ -15,6 +15,35 @@ export default function NewBook(){
 
     const {bookId} = useParams();
     const history = useHistory();
+
+    const accessToken = localStorage.getItem('accessToken');
+
+    const authorization = {
+        headers :
+        {
+            Authorization: `Bearer ${accessToken}` 
+        }
+    };
+
+    useEffect(() => {
+        if(bookId === '0') return;
+        else loadBook();
+    }, bookId);
+
+    async function loadBook(){
+        try{
+            const response = await api.get(`api/book/v1/${bookId}`, authorization);
+            setId(response.data.id);
+            setAuthor(response.data.author);
+            setTitle(response.data.title);
+            setPrice(response.data.price);
+            setLaunchDate(response.data.launchDate.split("T", 10)[0]);
+
+        }catch(error){
+            alert('Erro');
+            history.push('/books');
+        }
+    }
 
     async function createNewBook(e){
         e.preventDefault();
@@ -25,17 +54,10 @@ export default function NewBook(){
             launchDate,
             price,
         };
-        
-        const accessToken = localStorage.getItem('accessToken');
-
         try{
-            await api.post('api/book/v1' , data , {
-                headers:{
-                    Authorization: `Bearer ${accessToken}` 
-                }
-            });
+            await api.post('api/book/v1' , data , authorization);
         }catch(err){
-            alert('Erro')
+            alert('Erro');
         };
         history.push('/books');
     }
