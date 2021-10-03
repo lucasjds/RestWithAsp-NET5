@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using RestWithAsp_NET5.Business;
 using RestWithAsp_NET5.Data.VO;
 using RestWithAsp_NET5.Hypermedia.Filter;
+using System.Collections.Generic;
 
 namespace RestWithAsp_NET5.Controllers
 {
@@ -21,6 +22,18 @@ namespace RestWithAsp_NET5.Controllers
     {
       _logger = logger;
       _bookBusiness = bookBusiness;
+    }
+
+    [HttpGet("{sortDirection}/{pageSize}/{page}")]
+    [ProducesResponseType(200, Type = typeof(List<BookVO>))]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [TypeFilter(typeof(HyperMediaFilter))]
+    public IActionResult Get([FromQuery] string name, string sortDirection, int pageSize, int page)
+    {
+
+      return Ok(_bookBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
     }
 
     [HttpGet]

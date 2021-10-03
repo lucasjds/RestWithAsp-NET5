@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import './style.css';
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -13,6 +13,7 @@ export default function NewBook(){
     const [launchDate, setLaunchDate] = useState('');
     const [price, setPrice] = useState('');
 
+    const {bookId} = useParams();
     const history = useHistory();
 
     async function createNewBook(e){
@@ -45,7 +46,7 @@ export default function NewBook(){
                 <section className="form">
                     <img src={logoImage} alt="Erudio"/>
                     <h1>Adicionar novo livro</h1>
-                    <p>Preencha o formulário e clique em 'Adicionar'</p>
+                    <p>Preencha o formulário e clique em 'Adicionar' ${bookId}</p>
                     <Link className="back-link" to="/books">
                         <FiArrowLeft size={16} color="#251FC5"/>
                         Home

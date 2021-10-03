@@ -1,4 +1,5 @@
 ﻿using RestWithAsp_NET5.Data.VO;
+using RestWithAsp_NET5.Hypermedia.Utils;
 using RestWithAsp_NET5.Model;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,7 @@ namespace RestWithAsp_NET5.Business
     List<BookVO> FindAll();
     BookVO Update(BookVO book);
     void Delete(long id);
+    PagedSearchVO<BookVO> FindWithPagedSearch(string name, string sortDirection, int pageSize, int page);
+
   }
 }
