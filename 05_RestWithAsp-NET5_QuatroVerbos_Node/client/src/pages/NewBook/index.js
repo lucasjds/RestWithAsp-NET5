@@ -45,7 +45,7 @@ export default function NewBook(){
         }
     }
 
-    async function createNewBook(e){
+    async function saveOrUpdate(e){
         e.preventDefault();
 
         const data = {
@@ -55,7 +55,13 @@ export default function NewBook(){
             price,
         };
         try{
-            await api.post('api/book/v1' , data , authorization);
+            if(bookId === '0')
+                await api.post('api/book/v1' , data , authorization);
+            else{
+                data.id = id;
+                await api.put('api/book/v1' , data , authorization);
+            }
+            
         }catch(err){
             alert('Erro');
         };
@@ -67,19 +73,19 @@ export default function NewBook(){
             <div className="content">
                 <section className="form">
                     <img src={logoImage} alt="Erudio"/>
-                    <h1>Adicionar novo livro</h1>
-                    <p>Preencha o formulário e clique em 'Adicionar' ${bookId}</p>
+                    <h1>Form livro</h1>
+                    <p>Preencha o formulário e clique em 'Salvar' ${bookId}</p>
                     <Link className="back-link" to="/books">
                         <FiArrowLeft size={16} color="#251FC5"/>
                         Home
                     </Link>
                 </section>
-                <form onSubmit={createNewBook}>
+                <form onSubmit={saveOrUpdate}>
                     <input placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)}/>
                     <input placeholder="Autor" value={author} onChange={e => setAuthor(e.target.value)}/>
                     <input placeholder="Preço" value={price} onChange={e => setPrice(e.target.value)}/>
                     <input type="date" value={launchDate} onChange={e => setLaunchDate(e.target.value)}/>
-                    <button className="button" type="submit">Adicionar</button>
+                    <button className="button" type="submit">Salvar</button>
                 </form>
             </div>
         </div>
